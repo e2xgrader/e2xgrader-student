@@ -1,0 +1,8 @@
+{
+  "jupyter.lab.shortcuts": [],
+  "title": "@e2xgrader/student",
+  "description": "@e2xgrader/student settings.",
+  "type": "object",
+  "properties": {},
+  "additionalProperties": false
+}
