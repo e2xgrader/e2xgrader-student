@@ -1,0 +1,37 @@
+.jp-Cell-header {
+  height: auto;
+}
+
+.e2xgrader-StudentCellToolbar {
+  padding-top: calc(0.25 * var(--jp-private-toolbar-height));
+  min-height: auto;
+}
+
+.e2xgrader-CellLabel {
+  display: flex;
+  align-items: center;
+  min-width: 30ch;
+}
+
+.e2xgrader-Spacer {
+  flex-grow: 1;
+}
+
+.e2xgrader-SolutionCell {
+  background: var(--e2xgrader-blue);
+}
+
+.e2xgrader-ReadOnlyCell {
+  background: var(--e2xgrader-gray);
+}
+
+.jp-mod-selected
+  > .jp-Cell-inputWrapper
+  > .jp-Cell-inputArea
+  > .jp-MarkdownOutput {
+  border: var(--jp-border-width) solid var(--jp-cell-editor-active-border-color);
+}
+
+.jp-RenderedMarkdown {
+  border: var(--jp-border-width) solid #ddd;
+}
