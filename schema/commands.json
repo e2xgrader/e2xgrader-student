@@ -1,0 +1,293 @@
+{
+  "title": "@e2xgrader/student",
+  "description": "@e2xgrader/student settings.",
+  "type": "object",
+  "jupyter.lab.shortcuts": [
+    {
+      "command": "notebook:change-cell-to-markdown",
+      "keys": ["M"],
+      "selector": ".jp-Notebook.jp-mod-commandMode:not(.jp-mod-readWrite) :focus",
+      "disabled": true
+    },
+    {
+      "command": "notebook:change-cell-to-raw",
+      "keys": ["R"],
+      "selector": ".jp-Notebook.jp-mod-commandMode:not(.jp-mod-readWrite) :focus",
+      "disabled": true
+    },
+    {
+      "command": "notebook:change-cell-to-code",
+      "keys": ["Y"],
+      "selector": ".jp-Notebook.jp-mod-commandMode:not(.jp-mod-readWrite) :focus",
+      "disabled": true
+    },
+    {
+      "command": "notebook:change-cell-to-heading-1",
+      "keys": ["1"],
+      "selector": ".jp-Notebook.jp-mod-commandMode:not(.jp-mod-readWrite) :focus",
+      "disabled": true
+    },
+    {
+      "command": "notebook:change-cell-to-heading-2",
+      "keys": ["2"],
+      "selector": ".jp-Notebook.jp-mod-commandMode:not(.jp-mod-readWrite) :focus",
+      "disabled": true
+    },
+    {
+      "command": "notebook:change-cell-to-heading-3",
+      "keys": ["3"],
+      "selector": ".jp-Notebook.jp-mod-commandMode:not(.jp-mod-readWrite) :focus",
+      "disabled": true
+    },
+    {
+      "command": "notebook:change-cell-to-heading-4",
+      "keys": ["4"],
+      "selector": ".jp-Notebook.jp-mod-commandMode:not(.jp-mod-readWrite) :focus",
+      "disabled": true
+    },
+    {
+      "command": "notebook:change-cell-to-heading-5",
+      "keys": ["5"],
+      "selector": ".jp-Notebook.jp-mod-commandMode:not(.jp-mod-readWrite) :focus",
+      "disabled": true
+    },
+    {
+      "command": "notebook:change-cell-to-heading-6",
+      "keys": ["6"],
+      "selector": ".jp-Notebook.jp-mod-commandMode:not(.jp-mod-readWrite) :focus",
+      "disabled": true
+    },
+    {
+      "command": "notebook:insert-cell-below",
+      "keys": ["B"],
+      "selector": ".jp-Notebook.jp-mod-commandMode:not(.jp-mod-readWrite) :focus",
+      "disabled": true
+    },
+    {
+      "command": "notebook:insert-cell-above",
+      "keys": ["A"],
+      "selector": ".jp-Notebook.jp-mod-commandMode:not(.jp-mod-readWrite) :focus",
+      "disabled": true
+    },
+    {
+      "command": "e2xgrader:change-cell-to-markdown",
+      "keys": ["M"],
+      "selector": ".jp-Notebook.jp-mod-commandMode:not(.jp-mod-readWrite) :focus",
+      "disabled": false
+    },
+    {
+      "command": "notebook:delete-cell",
+      "selector": ".jp-Notebook.jp-mod-commandMode:not(.jp-mod-readWrite) :focus",
+      "disabled": true,
+      "keys": ["D", "D"]
+    },
+    {
+      "command": "e2xgrader:insert-cell-below",
+      "keys": ["B"],
+      "selector": ".jp-Notebook.jp-mod-commandMode:not(.jp-mod-readWrite) :focus"
+    },
+    {
+      "command": "e2xgrader:insert-cell-above",
+      "keys": ["A"],
+      "selector": ".jp-Notebook.jp-mod-commandMode:not(.jp-mod-readWrite) :focus"
+    }
+  ],
+  "jupyter.lab.toolbars": {
+    "Notebook": [
+      { "name": "paste", "disabled": true },
+      {
+        "name": "e2xPaste",
+        "command": "e2xgrader:paste-cell-below",
+        "rank": 23
+      },
+      {
+        "name": "cellType",
+        "disabled": true
+      },
+      {
+        "name": "e2xCellType",
+        "disabled": false
+      }
+    ],
+    "Cell": [
+      {
+        "name": "e2xDuplicate",
+        "command": "e2xgrader:duplicate-below",
+        "rank": 5
+      },
+      {
+        "name": "e2xMoveUp",
+        "command": "e2xgrader:move-cell-up",
+        "rank": 10
+      },
+      {
+        "name": "e2xMoveDown",
+        "command": "e2xgrader:move-cell-down",
+        "rank": 20
+      },
+      {
+        "name": "e2xInsertAbove",
+        "command": "e2xgrader:insert-cell-above",
+        "rank": 30
+      },
+      {
+        "name": "e2xInsertBelow",
+        "command": "e2xgrader:insert-cell-below",
+        "rank": 40
+      },
+      {
+        "name": "move-cell-up",
+        "disabled": true
+      },
+      {
+        "name": "move-cell-down",
+        "disabled": true
+      },
+      {
+        "name": "duplicate-cell",
+        "disabled": true
+      },
+      {
+        "name": "insert-cell-above",
+        "disabled": true
+      },
+      {
+        "name": "insert-cell-below",
+        "disabled": true
+      }
+    ]
+  },
+  "jupyter.lab.menus": {
+    "main": [
+      {
+        "id": "e2xgrader-mainmenu-edit",
+        "label": "Edit (e2x)",
+        "rank": 50,
+        "items": [
+          {
+            "command": "editmenu:undo",
+            "rank": 0
+          },
+          {
+            "command": "editmenu:redo",
+            "rank": 0
+          },
+          {
+            "type": "separator",
+            "rank": 10
+          },
+          {
+            "command": "editmenu:clear-current",
+            "rank": 10
+          },
+          {
+            "command": "editmenu:clear-all",
+            "rank": 10
+          },
+          {
+            "type": "separator",
+            "rank": 200
+          },
+          {
+            "command": "editmenu:go-to-line",
+            "rank": 200
+          },
+          {
+            "type": "separator",
+            "rank": 10
+          },
+          {
+            "command": "documentsearch:start",
+            "rank": 10
+          },
+          {
+            "command": "documentsearch:highlightNext",
+            "rank": 10
+          },
+          {
+            "command": "documentsearch:highlightPrevious",
+            "rank": 10
+          }
+        ]
+      },
+      {
+        "id": "jp-mainmenu-edit",
+        "disabled": true,
+        "items": [
+          {
+            "command": "notebook:paste-cell-below",
+            "disabled": true
+          },
+          {
+            "command": "notebook:paste-cell-above",
+            "disabled": true
+          },
+          {
+            "command": "notebook:paste-and-replace-cell",
+            "disabled": true
+          },
+          {
+            "command": "notebook:move-cell-up",
+            "disabled": true
+          },
+          {
+            "command": "notebook:move-cell-down",
+            "disabled": true
+          },
+          {
+            "command": "notebook:merge-cells",
+            "disabled": true
+          },
+          {
+            "command": "notebook:merge-cell-above",
+            "disabled": true
+          },
+          {
+            "command": "notebook:merge-cell-below",
+            "disabled": true
+          },
+          {
+            "command": "notebook:split-cell-at-cursor",
+            "disabled": true
+          },
+          {
+            "command": "e2xgrader:paste-cell-below",
+            "rank": 5
+          },
+          {
+            "command": "e2xgrader:paste-cell-above",
+            "rank": 5
+          },
+          {
+            "command": "e2xgrader:paste-and-replace-cell",
+            "rank": 5
+          },
+          {
+            "command": "e2xgrader:move-cell-up",
+            "rank": 8
+          },
+          {
+            "command": "e2xgrader:move-cell-down",
+            "rank": 8
+          },
+          {
+            "command": "e2xgrader:split-cell-at-cursor",
+            "rank": 9
+          },
+          {
+            "command": "e2xgrader:merge-cells",
+            "rank": 9
+          }
+        ]
+      }
+    ]
+  },
+  "properties": {
+    "allow_insert_cell": {
+      "type": "boolean",
+      "default": false,
+      "description": "Allow inserting new cells in the notebook."
+    }
+  },
+  "additionalProperties": false
+}
