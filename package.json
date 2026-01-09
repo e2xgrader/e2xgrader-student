@@ -57,8 +57,19 @@
         "watch:labextension": "jupyter labextension watch ."
     },
     "dependencies": {
+        "@e2xgrader/core": "file:../e2xgrader-core",
         "@jupyterlab/application": "^4.0.0",
-        "@jupyterlab/settingregistry": "^4.0.0"
+        "@jupyterlab/apputils": "^4.5.2",
+        "@jupyterlab/cells": "^4.4.2",
+        "@jupyterlab/nbformat": "^4.4.2",
+        "@jupyterlab/notebook": "^4.4.2",
+        "@jupyterlab/settingregistry": "^4.0.0",
+        "@jupyterlab/translation": "^4.4.2",
+        "@jupyterlab/ui-components": "^4.4.2",
+        "@lumino/commands": "^2.3.2",
+        "@lumino/coreutils": "^2.2.1",
+        "@lumino/messaging": "^2.0.3",
+        "react": "^19.1.0"
     },
     "devDependencies": {
         "@jupyterlab/builder": "^4.0.0",
@@ -98,7 +109,16 @@
     "jupyterlab": {
         "extension": true,
         "outputDir": "e2xgrader_student/labextension",
-        "schemaDir": "schema"
+        "schemaDir": "schema",
+        "sharedPackages": {
+            "@e2xgrader/core": {
+                "bundled": false,
+                "singleton": true
+            }
+        },
+        "disabledExtensions": [
+            "@e2xgrader/core:cell-factory"
+        ]
     },
     "eslintIgnore": [
         "node_modules",
