@@ -107,7 +107,6 @@ function shouldExecuteCommand(current: NotebookPanel | null): boolean {
       foundNbgraderCells ||= isNbgraderCell;
     }
   });
-  console.log('Did we find nbgrader cells?', foundNbgraderCells);
   return !foundNbgraderCells;
 }
 
@@ -147,13 +146,11 @@ export function registerCommands(
   settings: ISettingRegistry.ISettings
 ): void {
   const { commands, shell } = app;
-  console.log('Command registry', commands);
   // Iterate over the replaced commands and register them.
   Object.values(replacedCommands).forEach(command => {
     commands.addCommand(command.new_id, {
       label: args => commands.label(command.original_id, args),
       execute: args => {
-        console.log(`Executing command: ${command.new_id} with args:`, args);
         const current = getCurrent(tracker, shell, args);
         if (!shouldExecuteCommand(current)) {
           return;
@@ -174,7 +171,6 @@ export function registerCommands(
     commands.addCommand(command.new_id, {
       label: args => commands.label(command.original_id, args),
       execute: args => {
-        console.log(`Executing command: ${command.new_id} with args:`, args);
         sanitizeClipboard();
         commands.execute(command.original_id, args);
       },
@@ -187,7 +183,6 @@ export function registerCommands(
     commands.addCommand(command.new_id, {
       label: args => commands.label(command.original_id, args),
       execute: args => {
-        console.log(`Executing command: ${command.new_id} with args:`, args);
         const current = getCurrent(tracker, shell, args);
         if (
           !shouldExecuteCommand(current) ||

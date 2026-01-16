@@ -26,7 +26,9 @@ const cellFactoryPlugin: JupyterFrontEndPlugin<NotebookPanel.IContentFactory> =
       editorServices: IEditorServices,
       cellRegistry: E2xGraderCellRegistry.IE2xGraderCellRegistry
     ) => {
-      console.log('JupyterLab extension @e2xgrader/student is activated!');
+      console.log(
+        'JupyterLab extension @e2xgrader/student:plugin is activated!'
+      );
 
       const editorFactory = editorServices.factoryService.newInlineEditor;
       const contentFactory = new E2XContentFactoryStudent(
@@ -36,7 +38,6 @@ const cellFactoryPlugin: JupyterFrontEndPlugin<NotebookPanel.IContentFactory> =
         undefined,
         cellRegistry
       );
-      console.log('E2XContentFactory created:', contentFactory);
       return contentFactory;
     }
   };
@@ -58,9 +59,10 @@ const studentCommandsPlugin: JupyterFrontEndPlugin<void> = {
     toolbarRegistry: IToolbarWidgetRegistry,
     settingRegistry: ISettingRegistry
   ) => {
-    console.log('Register commands plugin activated');
+    console.log(
+      'JupyterLab extension @e2xgrader/student:commands is activated!'
+    );
     const settings = await settingRegistry.load(studentCommandsPlugin.id);
-    console.log('Settings loaded:', settings);
     registerCommands(app, tracker, translator, settings);
     toolbarRegistry.addFactory<NotebookPanel>(
       'Notebook',
