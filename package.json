@@ -116,7 +116,10 @@
             }
         },
         "disabledExtensions": [
-            "@e2xgrader/core:cell-factory"
+            "@e2xgrader/core:cell-factory",
+            "@jupyter/nbgrader:formgrader",
+            "@jupyter/nbgrader:create-assignment",
+            "@jupyter/nbgrader:course-list"
         ]
     },
     "eslintIgnore": [
