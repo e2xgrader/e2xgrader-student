@@ -17,7 +17,13 @@ test('should emit an activation console message', async ({ page }) => {
 
   expect(
     logs.filter(
-      s => s === 'JupyterLab extension @e2xgrader/student is activated!'
+      s => s === 'JupyterLab extension @e2xgrader/student:plugin is activated!'
+    )
+  ).toHaveLength(1);
+  expect(
+    logs.filter(
+      s =>
+        s === 'JupyterLab extension @e2xgrader/student:commands is activated!'
     )
   ).toHaveLength(1);
 });
