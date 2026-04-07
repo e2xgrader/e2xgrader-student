@@ -3,3 +3,95 @@
 
     https://jupyterlab.readthedocs.io/en/stable/developer/css.html
 */
+
+.jp-NotebookPanel-toolbar .jp-Toolbar-item[data-jp-item-name="submit"] .jp-ToolbarButtonComponent{
+    background-color: var(--jp-notebook-icon-color);
+    color: white;
+    position: relative;
+}
+
+.jp-NotebookPanel-toolbar .jp-Toolbar-item[data-jp-item-name="submit"] .jp-ToolbarButtonComponent:hover{
+    background-color: var(--md-orange-900);
+}
+
+.jp-NotebookPanel-toolbar .jp-Toolbar-item[data-jp-item-name="submit"] .jp-ToolbarButtonComponent.submitting::after{
+    position: absolute;
+    content: 'x';
+    margin: 0 auto;
+}
+
+.jp-NotebookPanel-toolbar ul.jp-Notebook-toolbarAdditionalResourcesDropdown{
+    position: absolute;
+    list-style-type: none;
+    margin: 0;
+    padding: 0.5rem;
+    background-color: var(--jp-toolbar-background);
+    box-shadow: var(--jp-toolbar-box-shadow);
+    clip-path: inset(0 -5px -5px -5px);
+}
+
+.jp-NotebookPanel-toolbar ul.jp-Notebook-toolbarAdditionalResourcesDropdown li:not(:first-child){
+    padding-top: 0.5rem;
+}
+
+.jp-ToolbarButtonComponent::part(content){
+    gap: 0.15rem;
+}
+
+.jp-Notebook-toolbarAdditionalResourcesDropdown li:hover{
+    text-decoration: underline;
+}
+
+.reduce-icon-size{
+    width: 12px;
+    height: 12px;
+}
+
+.e2x-submission-confirmation{
+    line-height: 1.3rem;
+
+    .e2x-submission-timestamp{
+        padding: 0.5rem;
+        margin: 0.75rem 0;
+        font-family: monospace;
+        background-color: var(--neutral-layer-card-container);
+    }
+}
+
+.jp-Dialog-footerButtons{
+    button.jp-mod-styled {
+        &.jp-mod-reject.e2x-submission-rejection-button {
+            background-color: var(--error-fill-rest);
+
+            &:active {
+                background-color: var(--error-fill-active);
+            }
+
+            &:focus {
+                background-color: var(--error-fill-focus);
+                outline-color: var(--error-fill-rest);
+            }
+
+            &:hover {
+                background-color: var(--error-fill-hover);
+            }
+        }
+
+        &.jp-mod-accept.e2x-submission-confirmation-button {
+            background-color: var(--jp-success-color1);
+
+            &:active {
+                background-color: var(--jp-success-color2);
+            }
+
+            &:focus {
+                background-color: var(--jp-success-color1);
+                outline-color: var(--jp-success-color1);
+            }
+
+            &:hover {
+                background-color: var(--jp-success-color0);
+            }
+        }
+    }
+}

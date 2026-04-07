@@ -1,0 +1,35 @@
+{
+  "jupyter.lab.shortcuts": [],
+  "jupyter.lab.toolbars": {
+    "Notebook": [
+      {
+        "name": "branding",
+        "type": "label",
+        "label": "e²x",
+        "caption": "e²xgrader-student",
+        "rank": 1
+      },
+      {
+        "name": "additional_resources",
+        "rank": 1000
+      },
+      {
+        "name": "submit",
+        "label": "Submit",
+        "command": "e2xgrader:submit-notebook",
+        "rank": 1001
+      }
+    ]
+  },
+  "jupyter.lab.internationalization": {
+    "selectors": [
+        "jupyter.lab.toolbars/.*/label"
+    ],
+    "domain": "e2xgrader_student"
+  },
+  "title": "@e2xgrader/student",
+  "description": "@e2xgrader/student settings.",
+  "type": "object",
+  "properties": {},
+  "additionalProperties": false
+}
