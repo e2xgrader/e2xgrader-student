@@ -17,12 +17,19 @@
   flex-grow: 1;
 }
 
+.e2xgrader-CellToolbar {
+  box-shadow: none;
+  border: var(--jp-border-width) solid var(--jp-border-color1);
+  border-bottom: none;
+}
+
 .e2xgrader-SolutionCell {
-  background: var(--e2xgrader-blue);
+  background: var(--jp-brand-color1);
+  color: white;
 }
 
 .e2xgrader-ReadOnlyCell {
-  background: var(--e2xgrader-gray);
+  background: var(--jp-layout-color2);
 }
 
 .jp-mod-selected
