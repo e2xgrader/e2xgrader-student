@@ -1,0 +1,59 @@
+{
+    "": {
+        "domain": "e2xgrader_student",
+        "language": "de-DE",
+        "plural_forms": "nplurals=2; plural=(n != 1);",
+        "version": "e2xgrader_student"
+    },
+    "Additional Resources": [
+        "Erg\u00e4nzende Ressourcen"
+    ],
+    "Are you done working on your exam?": [
+        "Haben Sie Ihre Pr\u00fcfung fertiggestellt?"
+    ],
+    "Cell Type Change Not Allowed": [
+        "Der Zelltyp darf nicht ver\u00e4ndert werden"
+    ],
+    "Cell type": [
+        "Zelltyp"
+    ],
+    "Exam submission successful": [
+        "Pr\u00fcfung erfolgreich eingereicht"
+    ],
+    "No, continue working on the exam": [
+        "Nein, Pr\u00fcfung fortsetzen"
+    ],
+    "One or more selected cells belong to the assignment and can't be changed!": [
+        "Eine oder mehrere der ausgew\u00e4hlten Zellen geh\u00f6ren zu einer Pr\u00fcfung und d\u00fcrfen nicht ver\u00e4ndert werden!"
+    ],
+    "Select the cell type": [
+        "Zelltyp ausw\u00e4hlen"
+    ],
+    "Submit notebook": [
+        "Notebook abgeben"
+    ],
+    "The hashcode will be displayed after exiting the exam.": [
+        "Der Hashcode wird nach dem Abschluss der Pr\u00fcfung angezeigt."
+    ],
+    "Yes, exit exam": [
+        "Ja, Pr\u00fcfung beenden"
+    ],
+    "Your submission was received at:": [
+        "Ihre Einreichung ging ein am/um:"
+    ],
+    "list available additional resources": [
+        "Erg\u00e4nzende Ressourcen auflisten"
+    ],
+    "menu\u0004Edit (e2x)": [
+        "Bearbeiten (e2x)"
+    ],
+    "schema\u0004@e2xgrader/student settings.": [
+        "@e2xgrader/student Einstellungen"
+    ],
+    "settings\u0004Allow inserting new cells in the notebook.": [
+        "Erlaube neue Zellen zu einem Notebook hinzuzuf\u00fcgen."
+    ],
+    "toolbar\u0004Submit": [
+        "Abgeben"
+    ]
+}
