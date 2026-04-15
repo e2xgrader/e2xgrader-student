@@ -69,7 +69,6 @@ export class SubmitCommand implements CommandRegistry.ICommandOptions {
               });
         })
       ));
-    console.log(this._fetchedAssignments);
   }
 
   private async fetchCourses(): Promise<string[]>{
@@ -136,7 +135,6 @@ export class SubmitCommand implements CommandRegistry.ICommandOptions {
         if(response.status === 200) {
           const responseData: E2xGraderSubmissionResponse = await response.json();
           console.log('notebook has been submitted');
-          console.log(responseData);
           if(responseData.hashcode && responseData.timestamp) {
             this.showConfirmationDialog(responseData.timestamp as string, URLExt.join(settings.baseUrl, 'view', notebookPath.replace(".ipynb", "_hashcode.html")));
           }
