@@ -22,9 +22,7 @@
     ]
   },
   "jupyter.lab.internationalization": {
-    "selectors": [
-        "jupyter.lab.toolbars/.*/label"
-    ],
+    "selectors": ["jupyter.lab.toolbars/.*/label"],
     "domain": "e2xgrader_student"
   },
   "title": "@e2xgrader/student",
