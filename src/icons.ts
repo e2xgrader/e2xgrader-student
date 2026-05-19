@@ -4,11 +4,11 @@ import spinnerSvgstr from '../style/icons/ring-resize.svg';
 import { LabIcon } from '@jupyterlab/ui-components';
 
 export const bookIcon = new LabIcon({
-  name: 'custom-notebook-toolbar:book',
+  name: 'e2xgrader-student:book',
   svgstr: bookSvgstr
 });
 export const paperPlaneIcon = new LabIcon({
-  name: 'custom-notebook-toolbar:paper-plane',
+  name: 'e2xgrader-student:paper-plane',
   svgstr: paperPlaneSvgstr
 });
 export const spinnerIcon = new LabIcon({
