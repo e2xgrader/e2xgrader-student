@@ -7,12 +7,12 @@ import { ISettingRegistry } from '@jupyterlab/settingregistry';
 import { NotebookPanel, INotebookTracker } from '@jupyterlab/notebook';
 import { E2XContentFactoryStudent } from './factory';
 import { E2xGraderCellRegistry } from '@e2xgrader/core';
-import { ITranslator } from '@jupyterlab/translation';
+import { ITranslator, nullTranslator } from '@jupyterlab/translation';
 import { registerCommands } from './commands';
 import { IToolbarWidgetRegistry, ICommandPalette } from '@jupyterlab/apputils';
-import { ToolbarItems } from './notebook_toolbar';
-import { SubmitCommand } from './submitCommand';
-import { createAdditionalResourcesItem } from './additionalResourcesWidget';
+import { ToolbarItems } from './notebook-toolbar/notebook_toolbar';
+import { SubmitCommand } from './submission/submitCommand';
+import { createAdditionalResourcesItem } from './notebook-toolbar/additionalResourcesWidget';
 
 export const SUBMIT_COMMAND_ID = 'e2xgrader:submit-notebook';
 export const NOTEBOOK_FACTORY_NAME = 'Notebook'; //The name of the factory that creates notebooks.
@@ -26,15 +26,19 @@ const cellFactoryPlugin: JupyterFrontEndPlugin<NotebookPanel.IContentFactory> =
     description: 'A JupyterLab extension for e2xgrader student mode',
     autoStart: true,
     requires: [IEditorServices, E2xGraderCellRegistry.IE2xGraderCellRegistry],
+    optional: [ITranslator],
     provides: NotebookPanel.IContentFactory,
     activate: (
       _app: JupyterFrontEnd,
       editorServices: IEditorServices,
-      cellRegistry: E2xGraderCellRegistry.IE2xGraderCellRegistry
+      cellRegistry: E2xGraderCellRegistry.IE2xGraderCellRegistry,
+      translator?: ITranslator
     ) => {
       console.log(
         'JupyterLab extension @e2xgrader/student:plugin is activated!'
       );
+
+      const trans = (translator ?? nullTranslator).load('e2xgrader_student');
 
       const editorFactory = editorServices.factoryService.newInlineEditor;
       const contentFactory = new E2XContentFactoryStudent(
@@ -42,7 +46,8 @@ const cellFactoryPlugin: JupyterFrontEndPlugin<NotebookPanel.IContentFactory> =
           editorFactory
         },
         undefined,
-        cellRegistry
+        cellRegistry,
+        trans
       );
       return contentFactory;
     }

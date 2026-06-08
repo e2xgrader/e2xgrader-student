@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: e2xgrader_student \n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-04-07 11:53+0000\n"
+"POT-Creation-Date: 2026-06-03 15:49+0000\n"
 "PO-Revision-Date: 2026-04-07 11:53+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: de_DE <LL@li.org>\n"
@@ -43,70 +43,102 @@ msgid "Submit"
 msgstr "Abgeben"
 
 #: src/additionalResourcesWidget.tsx:75
-msgid "Additional Resources"
-msgstr "Ergänzende Ressourcen"
-
-#: src/additionalResourcesWidget.tsx:75
+#: src/notebook-toolbar/additionalResourcesWidget.tsx:83
 msgid "list available additional resources"
 msgstr "Ergänzende Ressourcen auflisten"
 
+#: src/additionalResourcesWidget.tsx:75
+#: src/notebook-toolbar/additionalResourcesWidget.tsx:84
+msgid "Additional Resources"
+msgstr "Ergänzende Ressourcen"
+
+#: src/notebook-toolbar/notebook_toolbar.tsx:102
 #: src/notebook_toolbar.tsx:102
 msgid "Code"
 msgstr ""
 
+#: src/notebook-toolbar/notebook_toolbar.tsx:103
 #: src/notebook_toolbar.tsx:103
 msgid "Markdown"
 msgstr ""
 
+#: src/notebook-toolbar/notebook_toolbar.tsx:104
 #: src/notebook_toolbar.tsx:104
 msgid "Raw"
 msgstr ""
 
-#: src/notebook_toolbar.tsx:57
+#: src/notebook-toolbar/notebook_toolbar.tsx:57 src/notebook_toolbar.tsx:57
 msgid "Cell Type Change Not Allowed"
 msgstr "Der Zelltyp darf nicht verändert werden"
 
-#: src/notebook_toolbar.tsx:58
+#: src/notebook-toolbar/notebook_toolbar.tsx:58 src/notebook_toolbar.tsx:58
 msgid ""
 "One or more selected cells belong to the assignment and can't be changed!"
-msgstr "Eine oder mehrere der ausgewählten Zellen gehören zu einer Prüfung und dürfen nicht verändert werden!"
+msgstr ""
+"Eine oder mehrere der ausgewählten Zellen gehören zu einer Prüfung und "
+"dürfen nicht verändert werden!"
 
-#: src/notebook_toolbar.tsx:61
+#: src/notebook-toolbar/notebook_toolbar.tsx:61 src/notebook_toolbar.tsx:61
 msgid "Ok"
 msgstr ""
 
-#: src/notebook_toolbar.tsx:98
+#: src/notebook-toolbar/notebook_toolbar.tsx:98 src/notebook_toolbar.tsx:98
 msgid "Cell type"
 msgstr "Zelltyp"
 
-#: src/notebook_toolbar.tsx:99
+#: src/notebook-toolbar/notebook_toolbar.tsx:99 src/notebook_toolbar.tsx:99
 msgid "Select the cell type"
 msgstr "Zelltyp auswählen"
 
+#: src/submission/submissionConfirmationWidget.tsx:20
 #: src/submissionConfirmationWidget.tsx:17
 msgid "Your submission was received at:"
 msgstr "Ihre Einreichung ging ein am/um:"
 
+#: src/submission/submissionConfirmationWidget.tsx:22
 #: src/submissionConfirmationWidget.tsx:19
 msgid "Are you done working on your exam?"
 msgstr "Haben Sie Ihre Prüfung fertiggestellt?"
 
+#: src/submission/submissionConfirmationWidget.tsx:24
 #: src/submissionConfirmationWidget.tsx:20
 msgid "The hashcode will be displayed after exiting the exam."
 msgstr "Der Hashcode wird nach dem Abschluss der Prüfung angezeigt."
 
-#: src/submitCommand.ts:156
+#: src/submission/submitCommand.ts:212 src/submitCommand.ts:156
 msgid "Exam submission successful"
 msgstr "Prüfung erfolgreich eingereicht"
 
-#: src/submitCommand.ts:159
+#: src/submission/submitCommand.ts:216 src/submitCommand.ts:159
 msgid "No, continue working on the exam"
 msgstr "Nein, Prüfung fortsetzen"
 
-#: src/submitCommand.ts:160
+#: src/submission/submitCommand.ts:220 src/submitCommand.ts:160
 msgid "Yes, exit exam"
 msgstr "Ja, Prüfung beenden"
 
-#: src/submitCommand.ts:23
+#: src/submission/submitCommand.ts:29 src/submitCommand.ts:23
 msgid "Submit notebook"
 msgstr "Notebook abgeben"
+
+#: src/toolbar.tsx:41
+msgid "%1 Point"
+msgid_plural "%1 Points"
+msgstr[0] "%1 Punkt"
+msgstr[1] "%1 Punkte"
+
+#: src/toolbar.tsx:48
+msgid "Autograder Test"
+msgstr ""
+
+#: src/toolbar.tsx:51
+msgid "Task"
+msgstr "Aufgabenstellung"
+
+#: src/toolbar.tsx:60
+msgid "Code Answer"
+msgstr "Programmcode Antwort"
+
+#: src/toolbar.tsx:62
+msgid "Text Answer"
+msgstr "Text Antwort"

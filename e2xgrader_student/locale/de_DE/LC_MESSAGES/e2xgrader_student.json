@@ -5,6 +5,10 @@
         "plural_forms": "nplurals=2; plural=(n != 1);",
         "version": "e2xgrader_student"
     },
+    "%1 Point": [
+        "%1 Punkt",
+        "%1 Punkte"
+    ],
     "Additional Resources": [
         "Erg\u00e4nzende Ressourcen"
     ],
@@ -16,6 +20,9 @@
     ],
     "Cell type": [
         "Zelltyp"
+    ],
+    "Code Answer": [
+        "Programmcode Antwort"
     ],
     "Exam submission successful": [
         "Pr\u00fcfung erfolgreich eingereicht"
@@ -31,6 +38,12 @@
     ],
     "Submit notebook": [
         "Notebook abgeben"
+    ],
+    "Task": [
+        "Aufgabenstellung"
+    ],
+    "Text Answer": [
+        "Text Antwort"
     ],
     "The hashcode will be displayed after exiting the exam.": [
         "Der Hashcode wird nach dem Abschluss der Pr\u00fcfung angezeigt."

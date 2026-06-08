@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { ServerConnection } from '@jupyterlab/services';
 import { URLExt } from '@jupyterlab/coreutils';
-import { bookIcon } from './icons';
+import { bookIcon } from '../icons';
 import { TranslationBundle } from '@jupyterlab/translation';
 
 export interface IAdditionalResource {

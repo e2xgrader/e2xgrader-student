@@ -1,10 +1,10 @@
 import { CommandRegistry } from '@lumino/commands';
-import { paperPlaneIcon, spinnerIcon } from './icons';
+import { paperPlaneIcon, spinnerIcon } from '../icons';
 import { LabIcon } from '@jupyterlab/ui-components';
 import { INotebookTracker, NotebookPanel } from '@jupyterlab/notebook';
 import { ServerConnection } from '@jupyterlab/services';
 import { URLExt } from '@jupyterlab/coreutils';
-import { SUBMIT_COMMAND_ID } from './index';
+import { SUBMIT_COMMAND_ID } from '../index';
 import { showDialog, Dialog } from '@jupyterlab/apputils';
 import {
   INbGraderAssignment,
@@ -15,7 +15,7 @@ import { SubmissionConfirmationWidget } from './submissionConfirmationWidget';
 import { TranslationBundle } from '@jupyterlab/translation';
 import { JupyterFrontEnd } from '@jupyterlab/application';
 
-const NOTEBOOK_META_KEY = 'e2xGrader';
+export const SUBMITTABLE_NOTEBOOK_META_KEY = 'e2xGrader';
 const COURSE_API_PATH = 'courses';
 const ASSIGNMENT_API_PATH = 'assignments';
 const SUBMIT_NOTEBOOK_API_PATH = 'assignments/submit';
@@ -63,8 +63,9 @@ export class SubmitCommand implements CommandRegistry.ICommandOptions {
 
   isVisible = (): boolean => {
     return (
-      this.tracker?.currentWidget?.model?.metadata[NOTEBOOK_META_KEY] !==
-      undefined
+      this.tracker?.currentWidget?.model?.metadata[
+        SUBMITTABLE_NOTEBOOK_META_KEY
+      ] !== undefined
     );
   };
 
@@ -138,24 +139,24 @@ export class SubmitCommand implements CommandRegistry.ICommandOptions {
     );
   };
 
-  private blockSubmit = (): void => {
+  private blockSubmitButton = (): void => {
     this.submitting = true;
     this.updateSubmitButtons();
   };
 
-  private unblockSubmit = (): void => {
+  private unblockSubmitButton = (): void => {
     this.submitting = false;
     this.updateSubmitButtons();
   };
 
   execute = async (): Promise<void> => {
-    this.blockSubmit();
+    this.blockSubmitButton();
     const notebookPath: string | undefined = this.getCurrentNotebookPath();
     if (!notebookPath) {
       console.warn(
         "unable to identify the current notebook's path -> unable to submit"
       );
-      this.unblockSubmit();
+      this.unblockSubmitButton();
       return;
     }
     const assignment: INbGraderAssignment | undefined =
@@ -164,7 +165,7 @@ export class SubmitCommand implements CommandRegistry.ICommandOptions {
       console.warn(
         'notebook seems not to be part of any assignment -> unable to submit'
       );
-      this.unblockSubmit();
+      this.unblockSubmitButton();
       return;
     }
     const dataToSend = {
@@ -198,10 +199,10 @@ export class SubmitCommand implements CommandRegistry.ICommandOptions {
         } else {
           alert('failed to submit notebook');
         }
-        this.unblockSubmit();
+        this.unblockSubmitButton();
       })
       .catch(error => {
-        this.unblockSubmit();
+        this.unblockSubmitButton();
         throw new ServerConnection.NetworkError(error as TypeError);
       });
   };
