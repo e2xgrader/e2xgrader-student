@@ -117,7 +117,8 @@ export const submitCommandPlugin: JupyterFrontEndPlugin<void> = {
  */
 export const sharedMaterialsWidgetPlugin: JupyterFrontEndPlugin<void> = {
   id: '@e2xgrader/student:shared-materials-widget',
-  description: 'adds a toolbar widget, to offer shared materials/additional resources.',
+  description:
+    'adds a toolbar widget, to offer shared materials/additional resources.',
   requires: [IToolbarWidgetRegistry, ITranslator],
   autoStart: true,
   activate: (

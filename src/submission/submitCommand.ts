@@ -14,7 +14,7 @@ import {
 import { SubmissionConfirmationWidget } from './submissionConfirmationWidget';
 import { TranslationBundle } from '@jupyterlab/translation';
 import { JupyterFrontEnd } from '@jupyterlab/application';
-import {AssignmentListAPI} from "@e2xgrader/core";
+import { AssignmentListAPI } from '@e2xgrader/core';
 
 export const SUBMITTABLE_NOTEBOOK_META_KEY = 'e2xGrader';
 export const SUBMISSION_CONFIRMATION_BUTTON_CLASS =
@@ -84,13 +84,17 @@ export class SubmitCommand implements CommandRegistry.ICommandOptions {
     await AssignmentListAPI.fetchCourses().then(async courses =>
       Promise.all(
         courses.map(async courseId => {
-          await AssignmentListAPI.fetchAssignments(courseId).then(assignments => {
-            this._fetchedAssignments.push(
-              ...assignments.filter(
-                assignment => assignment.status === 'fetched' || assignment.status === 'submitted'
-              )
-            );
-          });
+          await AssignmentListAPI.fetchAssignments(courseId).then(
+            assignments => {
+              this._fetchedAssignments.push(
+                ...assignments.filter(
+                  assignment =>
+                    assignment.status === 'fetched' ||
+                    assignment.status === 'submitted'
+                )
+              );
+            }
+          );
         })
       )
     );
@@ -124,7 +128,8 @@ export class SubmitCommand implements CommandRegistry.ICommandOptions {
       this.unblockSubmitButton();
       return;
     }
-    const assignment: INbGraderAssignment | undefined = this.findAssignment(notebookPath);
+    const assignment: INbGraderAssignment | undefined =
+      this.findAssignment(notebookPath);
     if (!assignment) {
       console.warn(
         'notebook seems not to be part of any assignment -> unable to submit'
@@ -135,22 +140,25 @@ export class SubmitCommand implements CommandRegistry.ICommandOptions {
 
     const settings = ServerConnection.makeSettings();
 
-    AssignmentListAPI.submitAssignment(assignment.course_id, assignment.assignment_id)
+    AssignmentListAPI.submitAssignment(
+      assignment.course_id,
+      assignment.assignment_id
+    )
       .then((response: IE2xGraderSubmissionResponse) => {
-          console.log('notebook has been submitted');
-          if (response.hashcode && response.timestamp) {
-            this.showConfirmationDialog(
-              response.timestamp as string,
-              URLExt.join(
-                settings.baseUrl,
-                'view',
-                notebookPath.replace('.ipynb', '_hashcode.html')
-              )
-            );
-          }
-          this.unblockSubmitButton();
+        console.log('notebook has been submitted');
+        if (response.hashcode && response.timestamp) {
+          this.showConfirmationDialog(
+            response.timestamp as string,
+            URLExt.join(
+              settings.baseUrl,
+              'view',
+              notebookPath.replace('.ipynb', '_hashcode.html')
+            )
+          );
+        }
+        this.unblockSubmitButton();
       })
-      .catch((error: Error|ServerConnection.NetworkError) => {
+      .catch((error: Error | ServerConnection.NetworkError) => {
         this.unblockSubmitButton();
         alert('failed to submit notebook');
         throw error;

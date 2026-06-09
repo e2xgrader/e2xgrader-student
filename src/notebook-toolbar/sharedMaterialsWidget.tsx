@@ -3,14 +3,12 @@ import React from 'react';
 
 import { bookIcon } from '../icons';
 import { TranslationBundle } from '@jupyterlab/translation';
-import { SharedMaterialsAPI } from "@e2xgrader/core";
-
+import { SharedMaterialsAPI } from '@e2xgrader/core';
 
 /**
  * The class name added to toolbar additional resources dropdown wrapper.
  */
-const TOOLBAR_SHARED_MATERIALS_CLASS =
-  'jp-Notebook-toolbarSharedMaterials';
+const TOOLBAR_SHARED_MATERIALS_CLASS = 'jp-Notebook-toolbarSharedMaterials';
 
 /**
  * The class name added to toolbar additional resources dropdown.
