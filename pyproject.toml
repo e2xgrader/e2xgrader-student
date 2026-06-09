@@ -23,7 +23,7 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
 ]
 dependencies = [
-    "e2xgrader_core"
+    "e2xgrader_core>=0.1.0a3"
 ]
 dynamic = ["version", "description", "authors", "urls", "keywords"]
 
@@ -33,8 +33,15 @@ source = "nodejs"
 [tool.hatch.metadata.hooks.nodejs]
 fields = ["description", "authors", "urls", "keywords"]
 
+[project.entry-points."jupyterlab.locale"]
+e2xgrader_student = "e2xgrader_student"
+
 [tool.hatch.build.targets.sdist]
-artifacts = ["e2xgrader_student/labextension"]
+artifacts = [
+    "e2xgrader_student/labextension",
+    "e2xgrader_student/locale/**/*.json",
+    "e2xgrader_student/locale/**/*.mo"
+]
 exclude = [".github", "binder"]
 
 [tool.hatch.build.targets.wheel.shared-data]
