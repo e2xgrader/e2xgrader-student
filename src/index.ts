@@ -97,7 +97,9 @@ export const submitCommandPlugin: JupyterFrontEndPlugin<void> = {
     commandPalette: ICommandPalette,
     translator: ITranslator
   ) => {
-    console.log('JupyterLab extension @e2xgrader/student:submit-command is activated!');
+    console.log(
+      'JupyterLab extension @e2xgrader/student:submit-command is activated!'
+    );
     const trans = translator.load('e2xgrader_student');
     app.commands.addCommand(
       SUBMIT_COMMAND_ID,
@@ -123,7 +125,9 @@ export const additionalResourcesWidgetPlugin: JupyterFrontEndPlugin<void> = {
     toolbarWidgetRegistry: IToolbarWidgetRegistry,
     translator: ITranslator
   ) => {
-    console.log('JupyterLab extension @e2xgrader/student:additional-resources-widget is activated!');
+    console.log(
+      'JupyterLab extension @e2xgrader/student:additional-resources-widget is activated!'
+    );
     const trans = translator.load('e2xgrader_student');
     toolbarWidgetRegistry.addFactory<NotebookPanel>(
       NOTEBOOK_FACTORY_NAME,
