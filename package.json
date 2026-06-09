@@ -61,7 +61,7 @@
         "i18n:compile": "jupyterlab-translate compile ./ e2xgrader_student -l de_DE"
     },
     "dependencies": {
-        "@e2xgrader/core": "file:../e2xgrader-core",
+        "@e2xgrader/core": "^0.1.0-a3",
         "@jupyterlab/application": "^4.0.0",
         "@jupyterlab/apputils": "^4.5.2",
         "@jupyterlab/cells": "^4.4.2",
