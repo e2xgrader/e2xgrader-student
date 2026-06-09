@@ -14,23 +14,20 @@ import {
 import { SubmissionConfirmationWidget } from './submissionConfirmationWidget';
 import { TranslationBundle } from '@jupyterlab/translation';
 import { JupyterFrontEnd } from '@jupyterlab/application';
+import {AssignmentListAPI} from "@e2xgrader/core";
 
 export const SUBMITTABLE_NOTEBOOK_META_KEY = 'e2xGrader';
-const COURSE_API_PATH = 'courses';
-const ASSIGNMENT_API_PATH = 'assignments';
-const SUBMIT_NOTEBOOK_API_PATH = 'assignments/submit';
 export const SUBMISSION_CONFIRMATION_BUTTON_CLASS =
   'e2x-submission-confirmation-button';
 export const SUBMISSION_REJECTION_BUTTON_CLASS =
   'e2x-submission-rejection-button';
 
 export class SubmitCommand implements CommandRegistry.ICommandOptions {
-  //label: () => string = () => this.trans.__('Submit');
+  label: string = this.trans.__('Submit');
   caption: string = this.trans.__('Submit notebook');
   icon = (): LabIcon => {
     return this.submitting ? spinnerIcon : paperPlaneIcon;
   };
-  //iconLabel = this.trans.__('Submit');
   iconClass: string = 'reduce-icon-size';
   _fetchedAssignments: INbGraderAssignment[] = [];
   private tracker?: INotebookTracker;
@@ -84,51 +81,19 @@ export class SubmitCommand implements CommandRegistry.ICommandOptions {
 
   private async loadFetchedAssignments(): Promise<void> {
     this._fetchedAssignments = [];
-    await this.fetchCourses().then(async courses =>
+    await AssignmentListAPI.fetchCourses().then(async courses =>
       Promise.all(
         courses.map(async courseId => {
-          await this.fetchAssignments(courseId).then(assignments => {
+          await AssignmentListAPI.fetchAssignments(courseId).then(assignments => {
             this._fetchedAssignments.push(
               ...assignments.filter(
-                assignment => assignment.status === 'fetched'
+                assignment => assignment.status === 'fetched' || assignment.status === 'submitted'
               )
             );
           });
         })
       )
     );
-  }
-
-  private async fetchCourses(): Promise<string[]> {
-    const settings = ServerConnection.makeSettings();
-    const requestUrl = URLExt.join(settings.baseUrl, COURSE_API_PATH);
-
-    return ServerConnection.makeRequest(requestUrl, {}, settings)
-      .then(async response => {
-        return (await response.json()).value;
-      })
-      .catch(error => {
-        throw new ServerConnection.NetworkError(error as TypeError);
-      });
-  }
-
-  private async fetchAssignments(
-    courseId: string
-  ): Promise<INbGraderAssignment[]> {
-    const settings = ServerConnection.makeSettings();
-    const requestUrl = URLExt.join(
-      settings.baseUrl,
-      ASSIGNMENT_API_PATH,
-      '?course_id=' + encodeURIComponent(courseId)
-    );
-
-    return ServerConnection.makeRequest(requestUrl, {}, settings)
-      .then(async response => {
-        return (await response.json()).value;
-      })
-      .catch(error => {
-        throw new ServerConnection.NetworkError(error as TypeError);
-      });
   }
 
   private findAssignment = (path: string): INbGraderAssignment | undefined => {
@@ -159,8 +124,7 @@ export class SubmitCommand implements CommandRegistry.ICommandOptions {
       this.unblockSubmitButton();
       return;
     }
-    const assignment: INbGraderAssignment | undefined =
-      this.findAssignment(notebookPath);
+    const assignment: INbGraderAssignment | undefined = this.findAssignment(notebookPath);
     if (!assignment) {
       console.warn(
         'notebook seems not to be part of any assignment -> unable to submit'
@@ -168,27 +132,15 @@ export class SubmitCommand implements CommandRegistry.ICommandOptions {
       this.unblockSubmitButton();
       return;
     }
-    const dataToSend = {
-      course_id: assignment.course_id,
-      assignment_id: assignment.assignment_id
-    };
 
     const settings = ServerConnection.makeSettings();
-    const requestUrl = URLExt.join(settings.baseUrl, SUBMIT_NOTEBOOK_API_PATH);
 
-    await ServerConnection.makeRequest(
-      requestUrl,
-      { method: 'POST', body: JSON.stringify(dataToSend) },
-      settings
-    )
-      .then(async response => {
-        if (response.status === 200) {
-          const responseData: IE2xGraderSubmissionResponse =
-            await response.json();
+    AssignmentListAPI.submitAssignment(assignment.course_id, assignment.assignment_id)
+      .then((response: IE2xGraderSubmissionResponse) => {
           console.log('notebook has been submitted');
-          if (responseData.hashcode && responseData.timestamp) {
+          if (response.hashcode && response.timestamp) {
             this.showConfirmationDialog(
-              responseData.timestamp as string,
+              response.timestamp as string,
               URLExt.join(
                 settings.baseUrl,
                 'view',
@@ -196,14 +148,12 @@ export class SubmitCommand implements CommandRegistry.ICommandOptions {
               )
             );
           }
-        } else {
-          alert('failed to submit notebook');
-        }
-        this.unblockSubmitButton();
+          this.unblockSubmitButton();
       })
-      .catch(error => {
+      .catch((error: Error|ServerConnection.NetworkError) => {
         this.unblockSubmitButton();
-        throw new ServerConnection.NetworkError(error as TypeError);
+        alert('failed to submit notebook');
+        throw error;
       });
   };
 

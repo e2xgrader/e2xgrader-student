@@ -1,29 +1,22 @@
 import { ReactWidget, ToolbarButtonComponent } from '@jupyterlab/ui-components';
-import * as React from 'react';
+import React from 'react';
 
-import { ServerConnection } from '@jupyterlab/services';
-import { URLExt } from '@jupyterlab/coreutils';
 import { bookIcon } from '../icons';
 import { TranslationBundle } from '@jupyterlab/translation';
+import { SharedMaterialsAPI } from "@e2xgrader/core";
 
-export interface IAdditionalResource {
-  label: string;
-  path: string;
-}
 
-export const RESOURCE_API_PATH = 'e2xgrader/api/shared-materials';
-export const RESOURCE_STATIC_FILE_PATH = 'e2xgrader/static/shared-materials/';
 /**
  * The class name added to toolbar additional resources dropdown wrapper.
  */
-const TOOLBAR_ADDITIONAL_RESOURCES_CLASS =
-  'jp-Notebook-toolbarAdditionalResources';
+const TOOLBAR_SHARED_MATERIALS_CLASS =
+  'jp-Notebook-toolbarSharedMaterials';
 
 /**
  * The class name added to toolbar additional resources dropdown.
  */
-const TOOLBAR_ADDITIONAL_RESOURCES_DROPDOWN_CLASS =
-  'jp-Notebook-toolbarAdditionalResourcesDropdown';
+const TOOLBAR_SHARED_MATERIALS_DROPDOWN_CLASS =
+  'jp-Notebook-toolbarSharedMaterialsDropdown';
 
 /**
  * Create an additional resources dropdown item.
@@ -36,22 +29,22 @@ const TOOLBAR_ADDITIONAL_RESOURCES_DROPDOWN_CLASS =
  * cell types of the selected cells.
  * It can handle a change to the context.
  */
-export function createAdditionalResourcesItem(
+export function createSharedMaterialsItem(
   trans: TranslationBundle
 ): ReactWidget {
-  return new AdditionalResourcesWidget(trans);
+  return new SharedMaterialsWidget(trans);
 }
 
-export class AdditionalResourcesWidget extends ReactWidget {
+export class SharedMaterialsWidget extends ReactWidget {
   /**
    * Construct a new cell type switcher.
    */
   constructor(private trans: TranslationBundle) {
     super();
-    this.addClass(TOOLBAR_ADDITIONAL_RESOURCES_CLASS);
-    this.fetchAdditionalResources().then(resources => {
-      this._additionalResources = resources;
-      if (!this._additionalResources || this._additionalResources.length < 1) {
+    this.addClass(TOOLBAR_SHARED_MATERIALS_CLASS);
+    SharedMaterialsAPI.fetchSharedMaterials().then(resources => {
+      this._sharedMaterials = resources;
+      if (!this._sharedMaterials || this._sharedMaterials.length < 1) {
         this.hide();
       }
       this.update();
@@ -76,7 +69,7 @@ export class AdditionalResourcesWidget extends ReactWidget {
     this.closeDropDown();
   };
 
-  render(): JSX.Element {
+  render(): React.JSX.Element {
     return (
       <div>
         <ToolbarButtonComponent
@@ -87,8 +80,8 @@ export class AdditionalResourcesWidget extends ReactWidget {
           onClick={this.handleButtonClick}
         />
         {this._showDropdown && (
-          <ul className={TOOLBAR_ADDITIONAL_RESOURCES_DROPDOWN_CLASS}>
-            {this._additionalResources.map(resource => {
+          <ul className={TOOLBAR_SHARED_MATERIALS_DROPDOWN_CLASS}>
+            {this._sharedMaterials.map(resource => {
               return (
                 <li>
                   <a
@@ -107,24 +100,6 @@ export class AdditionalResourcesWidget extends ReactWidget {
     );
   }
 
-  private async fetchAdditionalResources(): Promise<IAdditionalResource[]> {
-    const settings = ServerConnection.makeSettings();
-    const requestUrl = URLExt.join(settings.baseUrl, RESOURCE_API_PATH);
-
-    return ServerConnection.makeRequest(requestUrl, {}, settings)
-      .then(async response => {
-        return ((await response.json()) as [label: string, path: string][]).map(
-          ([label, path]) => ({
-            label,
-            path: URLExt.join(settings.baseUrl, RESOURCE_STATIC_FILE_PATH, path)
-          })
-        );
-      })
-      .catch(error => {
-        throw new ServerConnection.NetworkError(error as TypeError);
-      });
-  }
-
   private _showDropdown: boolean = false;
-  private _additionalResources: IAdditionalResource[] = [];
+  private _sharedMaterials: SharedMaterialsAPI.ISharedMaterial[] = [];
 }

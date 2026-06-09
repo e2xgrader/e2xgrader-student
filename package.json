@@ -57,11 +57,11 @@
         "watch:labextension": "jupyter labextension watch .",
         "i18n:extract": "jupyterlab-translate extract ./ e2xgrader_student",
         "i18n:update": "jupyterlab-translate update ./ e2xgrader_student -l de_DE",
-        "i18n:prepare": "jlpm i18n:extract && jlpm i18n:prepare",
+        "i18n:prepare": "jlpm i18n:extract && jlpm i18n:update",
         "i18n:compile": "jupyterlab-translate compile ./ e2xgrader_student -l de_DE"
     },
     "dependencies": {
-        "@e2xgrader/core": "^0.1.0-a2",
+        "@e2xgrader/core": "file:../e2xgrader-core",
         "@jupyterlab/application": "^4.0.0",
         "@jupyterlab/apputils": "^4.5.2",
         "@jupyterlab/cells": "^4.4.2",

@@ -12,7 +12,7 @@ import { registerCommands } from './commands';
 import { IToolbarWidgetRegistry, ICommandPalette } from '@jupyterlab/apputils';
 import { ToolbarItems } from './notebook-toolbar/notebook_toolbar';
 import { SubmitCommand } from './submission/submitCommand';
-import { createAdditionalResourcesItem } from './notebook-toolbar/additionalResourcesWidget';
+import { createSharedMaterialsItem } from './notebook-toolbar/sharedMaterialsWidget';
 
 export const SUBMIT_COMMAND_ID = 'e2xgrader:submit-notebook';
 export const NOTEBOOK_FACTORY_NAME = 'Notebook'; //The name of the factory that creates notebooks.
@@ -113,11 +113,11 @@ export const submitCommandPlugin: JupyterFrontEndPlugin<void> = {
 };
 
 /**
- * Initialization data for the @e2xgrader/student:additional-resources-widget extension.
+ * Initialization data for the @e2xgrader/student:shared-materials-widget extension.
  */
-export const additionalResourcesWidgetPlugin: JupyterFrontEndPlugin<void> = {
-  id: '@e2xgrader/student:additional-resources-widget',
-  description: 'adds a toolbar widget, to offer additional resources.',
+export const sharedMaterialsWidgetPlugin: JupyterFrontEndPlugin<void> = {
+  id: '@e2xgrader/student:shared-materials-widget',
+  description: 'adds a toolbar widget, to offer shared materials/additional resources.',
   requires: [IToolbarWidgetRegistry, ITranslator],
   autoStart: true,
   activate: (
@@ -126,13 +126,13 @@ export const additionalResourcesWidgetPlugin: JupyterFrontEndPlugin<void> = {
     translator: ITranslator
   ) => {
     console.log(
-      'JupyterLab extension @e2xgrader/student:additional-resources-widget is activated!'
+      'JupyterLab extension @e2xgrader/student:shared-materials-widget is activated!'
     );
     const trans = translator.load('e2xgrader_student');
     toolbarWidgetRegistry.addFactory<NotebookPanel>(
       NOTEBOOK_FACTORY_NAME,
-      'additional_resources',
-      () => createAdditionalResourcesItem(trans)
+      'shared_materials',
+      () => createSharedMaterialsItem(trans)
     );
   }
 };
@@ -141,5 +141,5 @@ export default [
   cellFactoryPlugin,
   studentCommandsPlugin,
   submitCommandPlugin,
-  additionalResourcesWidgetPlugin
+  sharedMaterialsWidgetPlugin
 ];

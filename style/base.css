@@ -26,7 +26,7 @@
   margin: 0 auto;
 }
 
-.jp-NotebookPanel-toolbar ul.jp-Notebook-toolbarAdditionalResourcesDropdown {
+.jp-NotebookPanel-toolbar ul.jp-Notebook-toolbarSharedMaterialsDropdown {
   position: absolute;
   list-style-type: none;
   margin: 0;
@@ -36,12 +36,12 @@
   clip-path: inset(0 -5px -5px -5px);
 }
 
-.jp-Notebook-toolbarAdditionalResourcesDropdown li:hover {
+.jp-Notebook-toolbarSharedMaterialsDropdown li:hover {
   text-decoration: underline;
 }
 
 .jp-NotebookPanel-toolbar
-  ul.jp-Notebook-toolbarAdditionalResourcesDropdown
+  ul.jp-Notebook-toolbarSharedMaterialsDropdown
   li:not(:first-child) {
   padding-top: 0.5rem;
 }

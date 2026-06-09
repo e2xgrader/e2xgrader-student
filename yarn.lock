@@ -1580,9 +1580,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@e2xgrader/core@npm:^0.1.0-a2":
+"@e2xgrader/core@file:../e2xgrader-core::locator=%40e2xgrader%2Fstudent%40workspace%3A.":
   version: 0.1.0-a2
-  resolution: "@e2xgrader/core@npm:0.1.0-a2"
+  resolution: "@e2xgrader/core@file:../e2xgrader-core#../e2xgrader-core::hash=4c9f78&locator=%40e2xgrader%2Fstudent%40workspace%3A."
   dependencies:
     "@jupyter/ydoc": ^3.0.5
     "@jupyterlab/application": ^4.0.0
@@ -1598,7 +1598,7 @@ __metadata:
     "@lumino/messaging": ^2.0.3
     "@lumino/signaling": ^2.1.4
     "@lumino/widgets": ^2.7.1
-  checksum: 18a80a650d8fcf23adc213b613291fae5dde335460e326649458f7640abcfa06f8854ce0fbfbb1bbab2e4dfd24269d139129afa35e2c04a5db99d5c05ccd7d07
+  checksum: 471628297ab917c54a4c818bae32a7225a24e6fac072870e9c2785a36c44d320bef79ceb70135277d6e14874d6bf530eede168ce31c32af816bf217c15a91086
   languageName: node
   linkType: hard
 
@@ -1606,7 +1606,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@e2xgrader/student@workspace:."
   dependencies:
-    "@e2xgrader/core": ^0.1.0-a2
+    "@e2xgrader/core": "file:../e2xgrader-core"
     "@jupyterlab/application": ^4.0.0
     "@jupyterlab/apputils": ^4.5.2
     "@jupyterlab/builder": ^4.0.0
