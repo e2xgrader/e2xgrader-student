@@ -13,7 +13,7 @@
         "Erg\u00e4nzende Ressourcen"
     ],
     "Are you done working on your exam?": [
-        "Haben Sie Ihre Pr\u00fcfung fertiggestellt?"
+        "M\u00f6chten Sie die Pr\u00fcfung beenden?"
     ],
     "Cell Type Change Not Allowed": [
         "Der Zelltyp darf nicht ver\u00e4ndert werden"
@@ -31,10 +31,13 @@
         "Nein, Pr\u00fcfung fortsetzen"
     ],
     "One or more selected cells belong to the assignment and can't be changed!": [
-        "Eine oder mehrere der ausgew\u00e4hlten Zellen geh\u00f6ren zu einer Pr\u00fcfung und d\u00fcrfen nicht ver\u00e4ndert werden!"
+        "Eine oder mehrere der ausgew\u00e4hlten Zellen geh\u00f6ren zum Assignment und sind gesperrt."
     ],
     "Select the cell type": [
         "Zelltyp ausw\u00e4hlen"
+    ],
+    "Submit": [
+        "Abgeben"
     ],
     "Submit notebook": [
         "Notebook abgeben"
@@ -43,7 +46,7 @@
         "Aufgabenstellung"
     ],
     "Text Answer": [
-        "Text Antwort"
+        "Freitext Antwort"
     ],
     "The hashcode will be displayed after exiting the exam.": [
         "Der Hashcode wird nach dem Abschluss der Pr\u00fcfung angezeigt."
@@ -52,10 +55,10 @@
         "Ja, Pr\u00fcfung beenden"
     ],
     "Your submission was received at:": [
-        "Ihre Einreichung ging ein am/um:"
+        "Zeitpunkt der Abgabe:"
     ],
     "list available additional resources": [
-        "Erg\u00e4nzende Ressourcen auflisten"
+        "Hilfsmittel auflisten"
     ],
     "menu\u0004Edit (e2x)": [
         "Bearbeiten (e2x)"

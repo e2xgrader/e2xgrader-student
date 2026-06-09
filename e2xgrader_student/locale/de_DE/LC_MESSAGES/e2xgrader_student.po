@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: e2xgrader_student \n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-06-03 15:49+0000\n"
+"POT-Creation-Date: 2026-06-09 08:16+0000\n"
 "PO-Revision-Date: 2026-04-07 11:53+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: de_DE <LL@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Generated-By: Babel 2.18.0\n"
+"Generated-By: Babel 2.17.0\n"
 
 msgctxt "schema"
 msgid "@e2xgrader/student settings."
@@ -42,103 +42,100 @@ msgctxt "toolbar"
 msgid "Submit"
 msgstr "Abgeben"
 
-#: src/additionalResourcesWidget.tsx:75
 #: src/notebook-toolbar/additionalResourcesWidget.tsx:83
 msgid "list available additional resources"
 msgstr "Hilfsmittel auflisten"
 
-#: src/additionalResourcesWidget.tsx:75
 #: src/notebook-toolbar/additionalResourcesWidget.tsx:84
 msgid "Additional Resources"
 msgstr "Ergänzende Ressourcen"
 
 #: src/notebook-toolbar/notebook_toolbar.tsx:102
-#: src/notebook_toolbar.tsx:102
 msgid "Code"
 msgstr ""
 
 #: src/notebook-toolbar/notebook_toolbar.tsx:103
-#: src/notebook_toolbar.tsx:103
 msgid "Markdown"
 msgstr ""
 
 #: src/notebook-toolbar/notebook_toolbar.tsx:104
-#: src/notebook_toolbar.tsx:104
 msgid "Raw"
 msgstr ""
 
-#: src/notebook-toolbar/notebook_toolbar.tsx:57 src/notebook_toolbar.tsx:57
+#: src/notebook-toolbar/notebook_toolbar.tsx:57
 msgid "Cell Type Change Not Allowed"
 msgstr "Der Zelltyp darf nicht verändert werden"
 
-#: src/notebook-toolbar/notebook_toolbar.tsx:58 src/notebook_toolbar.tsx:58
+#: src/notebook-toolbar/notebook_toolbar.tsx:58
 msgid ""
 "One or more selected cells belong to the assignment and can't be changed!"
 msgstr ""
-"Eine oder mehrere der ausgewählten Zellen gehören zum Assignment und "
-"sind gesperrt."
+"Eine oder mehrere der ausgewählten Zellen gehören zum Assignment und sind "
+"gesperrt."
 
-#: src/notebook-toolbar/notebook_toolbar.tsx:61 src/notebook_toolbar.tsx:61
+#: src/notebook-toolbar/notebook_toolbar.tsx:61
 msgid "Ok"
 msgstr ""
 
-#: src/notebook-toolbar/notebook_toolbar.tsx:98 src/notebook_toolbar.tsx:98
+#: src/notebook-toolbar/notebook_toolbar.tsx:98
 msgid "Cell type"
 msgstr "Zelltyp"
 
-#: src/notebook-toolbar/notebook_toolbar.tsx:99 src/notebook_toolbar.tsx:99
+#: src/notebook-toolbar/notebook_toolbar.tsx:99
 msgid "Select the cell type"
 msgstr "Zelltyp auswählen"
 
 #: src/submission/submissionConfirmationWidget.tsx:20
-#: src/submissionConfirmationWidget.tsx:17
 msgid "Your submission was received at:"
 msgstr "Zeitpunkt der Abgabe:"
 
 #: src/submission/submissionConfirmationWidget.tsx:22
-#: src/submissionConfirmationWidget.tsx:19
 msgid "Are you done working on your exam?"
 msgstr "Möchten Sie die Prüfung beenden?"
 
 #: src/submission/submissionConfirmationWidget.tsx:24
-#: src/submissionConfirmationWidget.tsx:20
 msgid "The hashcode will be displayed after exiting the exam."
 msgstr "Der Hashcode wird nach dem Abschluss der Prüfung angezeigt."
 
-#: src/submission/submitCommand.ts:212 src/submitCommand.ts:156
+#: src/submission/submitCommand.ts:211
 msgid "Exam submission successful"
 msgstr "Prüfung erfolgreich eingereicht"
 
-#: src/submission/submitCommand.ts:216 src/submitCommand.ts:159
+#: src/submission/submitCommand.ts:215
 msgid "No, continue working on the exam"
 msgstr "Nein, Prüfung fortsetzen"
 
-#: src/submission/submitCommand.ts:220 src/submitCommand.ts:160
+#: src/submission/submitCommand.ts:219
 msgid "Yes, exit exam"
 msgstr "Ja, Prüfung beenden"
 
-#: src/submission/submitCommand.ts:29 src/submitCommand.ts:23
+#: src/submission/submitCommand.ts:28
+#, fuzzy
+msgid "Submit"
+msgstr "Abgeben"
+
+#: src/submission/submitCommand.ts:29
 msgid "Submit notebook"
 msgstr "Notebook abgeben"
 
-#: src/toolbar.tsx:41
+#: src/toolbar.tsx:44
 msgid "%1 Point"
 msgid_plural "%1 Points"
 msgstr[0] "%1 Punkt"
 msgstr[1] "%1 Punkte"
 
-#: src/toolbar.tsx:48
+#: src/toolbar.tsx:51
 msgid "Autograder Test"
 msgstr ""
 
-#: src/toolbar.tsx:51
+#: src/toolbar.tsx:54
 msgid "Task"
 msgstr "Aufgabenstellung"
 
-#: src/toolbar.tsx:60
+#: src/toolbar.tsx:63
 msgid "Code Answer"
 msgstr "Programmcode Antwort"
 
-#: src/toolbar.tsx:62
+#: src/toolbar.tsx:65
 msgid "Text Answer"
 msgstr "Freitext Antwort"
