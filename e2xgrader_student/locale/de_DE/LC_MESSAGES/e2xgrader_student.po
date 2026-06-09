@@ -83,7 +83,7 @@ msgstr "Hilfsmittel auflisten"
 
 #: src/notebook-toolbar/sharedMaterialsWidget.tsx:77
 msgid "Additional Resources"
-msgstr "Ergänzende Ressourcen"
+msgstr "Hilfsmittel"
 
 #: src/submission/submissionConfirmationWidget.tsx:20
 msgid "Your submission was received at:"

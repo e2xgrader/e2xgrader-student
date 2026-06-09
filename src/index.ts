@@ -132,7 +132,7 @@ export const sharedMaterialsWidgetPlugin: JupyterFrontEndPlugin<void> = {
     const trans = translator.load('e2xgrader_student');
     toolbarWidgetRegistry.addFactory<NotebookPanel>(
       NOTEBOOK_FACTORY_NAME,
-      'shared_materials',
+      'e2xgrader_shared_materials',
       () => createSharedMaterialsItem(trans)
     );
   }
