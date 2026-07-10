@@ -20,7 +20,7 @@ export class StudentCellToolbar extends E2xGraderCellToolbar.CellToolbar {
     if (model?.isNbgraderCell) {
       this.show();
     }
-    if (model?.isSolution) {
+    if (model?.isSolution || model?.isTask) {
       this.addClass('e2xgrader-SolutionCell');
     }
     if (model?.isDescription) {
