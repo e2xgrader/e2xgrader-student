@@ -18,6 +18,10 @@
     background-color: var(--solution-color-contrast) !important;
     color: var(--solution-color) !important;
   }
+
+  .e2xgrader-LockIcon svg {
+    filter: brightness(0) invert();
+  }
 }
 
 .e2xgrader-CellLabel {
