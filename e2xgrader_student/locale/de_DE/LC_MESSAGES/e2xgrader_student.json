@@ -18,6 +18,9 @@
     "Are you done working on your exam?": [
         "M\u00f6chten Sie die Pr\u00fcfung beenden?"
     ],
+    "Autograder Test": [
+        "Autograder Test"
+    ],
     "Cell Type Change Not Allowed": [
         "Der Zelltyp darf nicht ver\u00e4ndert werden"
     ],
@@ -25,7 +28,7 @@
         "Zelltyp"
     ],
     "Code Answer": [
-        "Programmcode Antwort"
+        "Code Antwort"
     ],
     "ERROR: Unable to find material": [
         "ERROR: Hilfsmittel konnte nicht gefunden werden!"
@@ -35,6 +38,9 @@
     ],
     "No, continue working on the exam": [
         "Nein, Pr\u00fcfung fortsetzen"
+    ],
+    "Ok": [
+        "Ok"
     ],
     "One or more selected cells belong to the assignment and can't be changed!": [
         "Eine oder mehrere der ausgew\u00e4hlten Zellen geh\u00f6ren zum Assignment und sind gesperrt."

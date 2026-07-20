@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: e2xgrader_student \n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-07-17 13:54+0000\n"
+"POT-Creation-Date: 2026-07-20 13:00+0000\n"
 "PO-Revision-Date: 2026-04-07 11:53+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: de_DE <LL@li.org>\n"
@@ -42,11 +42,11 @@ msgctxt "toolbar"
 msgid "Submit"
 msgstr "Abgeben"
 
-#: src/notebook-toolbar/SharedMaterialsWidget.ts:12
+#: src/notebook-toolbar/SharedMaterialsWidget.ts:14
 msgid "Additional Resources"
 msgstr "Hilfsmittel"
 
-#: src/notebook-toolbar/SharedMaterialsWidget.ts:13
+#: src/notebook-toolbar/SharedMaterialsWidget.ts:15
 msgid "list available additional resources"
 msgstr "Hilfsmittel auflisten"
 
@@ -75,7 +75,7 @@ msgstr ""
 
 #: src/notebook-toolbar/notebook_toolbar.tsx:61
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: src/notebook-toolbar/notebook_toolbar.tsx:98
 msgid "Cell type"
@@ -85,8 +85,7 @@ msgstr "Zelltyp"
 msgid "Select the cell type"
 msgstr "Zelltyp auswählen"
 
-#: src/notebook-toolbar/openSharedMaterialCommand.ts:8
-#, fuzzy
+#: src/notebook-toolbar/openSharedMaterialCommand.ts:10
 msgid "ERROR: Unable to find material"
 msgstr "ERROR: Hilfsmittel konnte nicht gefunden werden!"
 
@@ -115,7 +114,6 @@ msgid "Yes, exit exam"
 msgstr "Ja, Prüfung beenden"
 
 #: src/submission/submitCommand.ts:26
-#, fuzzy
 msgid "Submit"
 msgstr "Abgeben"
 
@@ -131,7 +129,7 @@ msgstr[1] "%1 Punkte"
 
 #: src/toolbar.tsx:51
 msgid "Autograder Test"
-msgstr ""
+msgstr "Autograder Test"
 
 #: src/toolbar.tsx:54
 msgid "Task"
@@ -143,7 +141,7 @@ msgstr "%1 Antwort"
 
 #: src/toolbar.tsx:63
 msgid "Code Answer"
-msgstr "Programmcode Antwort"
+msgstr "Code Antwort"
 
 #: src/toolbar.tsx:65
 msgid "Text Answer"
