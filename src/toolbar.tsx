@@ -56,7 +56,7 @@ export namespace StudentCellToolbar {
       const cell_type = this.gradingCellModel?.gradingCellType ?? '';
       if (this.gradingCellModel?.isE2xgraderCell) {
         const label = this.cellRegistry?.getPluginLabel(cell_type) ?? cell_type;
-        return this._trans.__(`${label} Answer`);
+        return this._trans._p('%1 Answer', label);
       }
       const original_cell_type = this.cell?.model.sharedModel.cell_type;
       if (original_cell_type === 'code') {

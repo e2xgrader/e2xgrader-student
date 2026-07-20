@@ -6,16 +6,20 @@ import { IEditorServices } from '@jupyterlab/codeeditor';
 import { ISettingRegistry } from '@jupyterlab/settingregistry';
 import { NotebookPanel, INotebookTracker } from '@jupyterlab/notebook';
 import { E2XContentFactoryStudent } from './factory';
-import { E2xGraderCellRegistry } from '@e2xgrader/core';
+import {
+  E2xGraderCellRegistry,
+  ExtendedToolbarWidgetRegistry,
+  PRIMARY_NOTEBOOK_TOOLBAR_FACTORY_ID
+} from '@e2xgrader/core';
 import { ITranslator, nullTranslator } from '@jupyterlab/translation';
 import { registerCommands } from './commands';
 import { IToolbarWidgetRegistry, ICommandPalette } from '@jupyterlab/apputils';
 import { ToolbarItems } from './notebook-toolbar/notebook_toolbar';
 import { SubmitCommand } from './submission/submitCommand';
-import { createSharedMaterialsItem } from './notebook-toolbar/sharedMaterialsWidget';
+import { SharedMaterialsWidget } from './notebook-toolbar/SharedMaterialsWidget';
+import { OpenSharedMaterialCommand } from './notebook-toolbar/openSharedMaterialCommand';
 
 export const SUBMIT_COMMAND_ID = 'e2xgrader:submit-notebook';
-export const NOTEBOOK_FACTORY_NAME = 'Notebook'; //The name of the factory that creates notebooks.
 
 /**
  * Initialization data for the @e2xgrader/student extension.
@@ -119,21 +123,38 @@ export const sharedMaterialsWidgetPlugin: JupyterFrontEndPlugin<void> = {
   id: '@e2xgrader/student:shared-materials-widget',
   description:
     'adds a toolbar widget, to offer shared materials/additional resources.',
-  requires: [IToolbarWidgetRegistry, ITranslator],
+  requires: [IToolbarWidgetRegistry, ICommandPalette],
+  optional: [ITranslator],
   autoStart: true,
   activate: (
     app: JupyterFrontEnd,
     toolbarWidgetRegistry: IToolbarWidgetRegistry,
-    translator: ITranslator
+    commandPalette: ICommandPalette,
+    translator?: ITranslator
   ) => {
     console.log(
       'JupyterLab extension @e2xgrader/student:shared-materials-widget is activated!'
     );
-    const trans = translator.load('e2xgrader_student');
-    toolbarWidgetRegistry.addFactory<NotebookPanel>(
-      NOTEBOOK_FACTORY_NAME,
-      'e2xgrader_shared_materials',
-      () => createSharedMaterialsItem(trans)
+
+    const trans = (translator ?? nullTranslator).load('e2xgrader_student');
+
+    app.commands.addCommand(
+      OpenSharedMaterialCommand.COMMAND_ID,
+      new OpenSharedMaterialCommand(app, trans)
+    );
+
+    commandPalette.addItem({
+      command: OpenSharedMaterialCommand.COMMAND_ID,
+      category: 'e2xgrader'
+    });
+
+    (
+      toolbarWidgetRegistry as ExtendedToolbarWidgetRegistry
+    ).addFactory<NotebookPanel>(
+      PRIMARY_NOTEBOOK_TOOLBAR_FACTORY_ID,
+      SharedMaterialsWidget.WIDGET_ID,
+      (toolbar, toolbarItem) =>
+        new SharedMaterialsWidget(trans, app.commands, toolbarItem)
     );
   }
 };

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: e2xgrader_student \n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-06-09 11:49+0000\n"
+"POT-Creation-Date: 2026-07-17 13:54+0000\n"
 "PO-Revision-Date: 2026-04-07 11:53+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: de_DE <LL@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.18.0\n"
 
 msgctxt "schema"
 msgid "@e2xgrader/student settings."
@@ -41,6 +41,14 @@ msgstr ""
 msgctxt "toolbar"
 msgid "Submit"
 msgstr "Abgeben"
+
+#: src/notebook-toolbar/SharedMaterialsWidget.ts:12
+msgid "Additional Resources"
+msgstr "Hilfsmittel"
+
+#: src/notebook-toolbar/SharedMaterialsWidget.ts:13
+msgid "list available additional resources"
+msgstr "Hilfsmittel auflisten"
 
 #: src/notebook-toolbar/notebook_toolbar.tsx:102
 msgid "Code"
@@ -77,13 +85,10 @@ msgstr "Zelltyp"
 msgid "Select the cell type"
 msgstr "Zelltyp auswählen"
 
-#: src/notebook-toolbar/sharedMaterialsWidget.tsx:76
-msgid "list available additional resources"
-msgstr "Hilfsmittel auflisten"
-
-#: src/notebook-toolbar/sharedMaterialsWidget.tsx:77
-msgid "Additional Resources"
-msgstr "Hilfsmittel"
+#: src/notebook-toolbar/openSharedMaterialCommand.ts:8
+#, fuzzy
+msgid "ERROR: Unable to find material"
+msgstr "ERROR: Hilfsmittel konnte nicht gefunden werden!"
 
 #: src/submission/submissionConfirmationWidget.tsx:20
 msgid "Your submission was received at:"
@@ -97,24 +102,24 @@ msgstr "Möchten Sie die Prüfung beenden?"
 msgid "The hashcode will be displayed after exiting the exam."
 msgstr "Der Hashcode wird nach dem Abschluss der Prüfung angezeigt."
 
-#: src/submission/submitCommand.ts:162 src/submission/submitCommand.ts:211
+#: src/submission/submitCommand.ts:170
 msgid "Exam submission successful"
 msgstr "Prüfung erfolgreich eingereicht"
 
-#: src/submission/submitCommand.ts:166 src/submission/submitCommand.ts:215
+#: src/submission/submitCommand.ts:174
 msgid "No, continue working on the exam"
 msgstr "Nein, Prüfung fortsetzen"
 
-#: src/submission/submitCommand.ts:170 src/submission/submitCommand.ts:219
+#: src/submission/submitCommand.ts:178
 msgid "Yes, exit exam"
 msgstr "Ja, Prüfung beenden"
 
-#: src/submission/submitCommand.ts:26 src/submission/submitCommand.ts:28
+#: src/submission/submitCommand.ts:26
 #, fuzzy
 msgid "Submit"
 msgstr "Abgeben"
 
-#: src/submission/submitCommand.ts:27 src/submission/submitCommand.ts:29
+#: src/submission/submitCommand.ts:27
 msgid "Submit notebook"
 msgstr "Notebook abgeben"
 
@@ -131,6 +136,10 @@ msgstr ""
 #: src/toolbar.tsx:54
 msgid "Task"
 msgstr "Aufgabenstellung"
+
+#: src/toolbar.tsx:59
+msgid "%1 Answer"
+msgstr "%1 Antwort"
 
 #: src/toolbar.tsx:63
 msgid "Code Answer"

@@ -5,12 +5,15 @@
         "plural_forms": "nplurals=2; plural=(n != 1);",
         "version": "e2xgrader_student"
     },
+    "%1 Answer": [
+        "%1 Antwort"
+    ],
     "%1 Point": [
         "%1 Punkt",
         "%1 Punkte"
     ],
     "Additional Resources": [
-        "Erg\u00e4nzende Ressourcen"
+        "Hilfsmittel"
     ],
     "Are you done working on your exam?": [
         "M\u00f6chten Sie die Pr\u00fcfung beenden?"
@@ -23,6 +26,9 @@
     ],
     "Code Answer": [
         "Programmcode Antwort"
+    ],
+    "ERROR: Unable to find material": [
+        "ERROR: Hilfsmittel konnte nicht gefunden werden!"
     ],
     "Exam submission successful": [
         "Pr\u00fcfung erfolgreich eingereicht"

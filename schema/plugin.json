@@ -10,7 +10,8 @@
         "rank": 1
       },
       {
-        "name": "shared_materials",
+        "name": "shared-materials",
+        "alignRight": true,
         "rank": 1000
       },
       {
