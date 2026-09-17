@@ -9,13 +9,7 @@ const TOOLBAR_SHARED_MATERIALS_CLASS: string =
   'e2x-notebook-toolbar-shared-materials-widget-class';
 
 export class SharedMaterialsWidget extends ToolbarDropdownComponent {
-  private readonly _pr: ToolbarDropdownComponent.IProps = {
-    id: SharedMaterialsWidget.WIDGET_ID,
-    label: this._trans.__('Additional Resources'),
-    caption: this._trans.__('list available additional resources'),
-    icon: bookIcon,
-    commands: []
-  };
+  private readonly _pr: ToolbarDropdownComponent.IProps;
 
   private _isVisible: boolean = false;
 
@@ -27,9 +21,18 @@ export class SharedMaterialsWidget extends ToolbarDropdownComponent {
     super({
       id: SharedMaterialsWidget.WIDGET_ID,
       icon: bookIcon,
-      commands: []
+      commands: _commandRegistry,
+      dropdownItems: []
     });
-    this._pr.alignRight = toolbarItem?.alignRight === true;
+    this._pr = {
+      id: SharedMaterialsWidget.WIDGET_ID,
+      label: this._trans.__('Additional Resources'),
+      caption: this._trans.__('list available additional resources'),
+      icon: bookIcon,
+      commands: _commandRegistry,
+      dropdownItems: [],
+      alignRight: toolbarItem?.alignRight === true
+    }
 
     this.setProps(this._pr);
     this.addClass(TOOLBAR_SHARED_MATERIALS_CLASS);
@@ -40,12 +43,13 @@ export class SharedMaterialsWidget extends ToolbarDropdownComponent {
   private async loadSharedMaterials(): Promise<void> {
     await SharedMaterialsAPI.fetchSharedMaterials().then(materials => {
       materials.forEach(item => {
-        this._pr.commands.push({
+        this._pr.dropdownItems.push({
           commands: this._commandRegistry,
           id: OpenSharedMaterialCommand.COMMAND_ID,
           args: {
             path: item.path
-          }
+          },
+          type: "command"
         });
       });
 

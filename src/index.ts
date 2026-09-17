@@ -8,7 +8,7 @@ import { NotebookPanel, INotebookTracker } from '@jupyterlab/notebook';
 import { E2XContentFactoryStudent } from './factory';
 import {
   E2xGraderCellRegistry,
-  ExtendedToolbarWidgetRegistry,
+  SecondaryToolbarWidgetRegistry,
   PRIMARY_NOTEBOOK_TOOLBAR_FACTORY_ID
 } from '@e2xgrader/core';
 import { ITranslator, nullTranslator } from '@jupyterlab/translation';
@@ -149,7 +149,7 @@ export const sharedMaterialsWidgetPlugin: JupyterFrontEndPlugin<void> = {
     });
 
     (
-      toolbarWidgetRegistry as ExtendedToolbarWidgetRegistry
+      toolbarWidgetRegistry as SecondaryToolbarWidgetRegistry
     ).addFactory<NotebookPanel>(
       PRIMARY_NOTEBOOK_TOOLBAR_FACTORY_ID,
       SharedMaterialsWidget.WIDGET_ID,
