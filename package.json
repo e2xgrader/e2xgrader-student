@@ -62,21 +62,21 @@
     },
     "dependencies": {
         "@e2xgrader/core": "file:../e2xgrader-core",
-        "@jupyterlab/application": "^4.0.0",
-        "@jupyterlab/apputils": "^4.5.2",
-        "@jupyterlab/cells": "^4.4.2",
-        "@jupyterlab/nbformat": "^4.4.2",
-        "@jupyterlab/notebook": "^4.4.2",
-        "@jupyterlab/settingregistry": "^4.0.0",
-        "@jupyterlab/translation": "^4.4.2",
-        "@jupyterlab/ui-components": "^4.4.2",
-        "@lumino/commands": "^2.3.2",
-        "@lumino/coreutils": "^2.2.1",
-        "@lumino/messaging": "^2.0.3"
+        "@jupyterlab/application": "^4.5.10",
+        "@jupyterlab/apputils": "^4.5.10",
+        "@jupyterlab/cells": "^4.5.10",
+        "@jupyterlab/nbformat": "^4.5.10",
+        "@jupyterlab/notebook": "^4.5.10",
+        "@jupyterlab/settingregistry": "^4.5.10",
+        "@jupyterlab/translation": "^4.5.10",
+        "@jupyterlab/ui-components": "^4.5.10",
+        "@lumino/commands": "^2.3.4",
+        "@lumino/coreutils": "^2.2.3",
+        "@lumino/messaging": "^2.0.5"
     },
     "devDependencies": {
-        "@jupyterlab/builder": "^4.0.0",
-        "@jupyterlab/testutils": "^4.0.0",
+        "@jupyterlab/builder": "^4.5.10",
+        "@jupyterlab/testutils": "^4.5.10",
         "@types/jest": "^29.2.0",
         "@types/json-schema": "^7.0.11",
         "@types/react": "^18.0.26",
@@ -98,8 +98,11 @@
         "stylelint-config-standard": "^34.0.0",
         "stylelint-csstree-validator": "^3.0.0",
         "stylelint-prettier": "^4.0.0",
-        "typescript": "~5.0.2",
+        "typescript": "^5.9.3",
         "yjs": "^13.5.0"
+    },
+    "resolutions": {
+        "lib0": "0.2.111"
     },
     "sideEffects": [
         "style/*.css",
